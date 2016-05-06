@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="LoginDAO">
+
+	<!-- LOGIN CHECK -->
+	<select id="selectIdCk" resultType="int" parameterType="croSNS.login.LoginVO">
+
+			/* LoginDAO.selectIdCk */
+		<![CDATA[
+			SELECT COUNT(*)
+			FROM SYS_LOGIN
+			WHERE SYS_ID='${sysId}' AND SYS_PWD='${sysPwd}'
+		]]>
+
+    </select>
+
+	<!-- 名前検索　 -->
+	<select id="selectName" parameterType="croSNS.login.LoginVO" resultType="String" >
+		/* LoginDAO.selectName */
+		<![CDATA[
+			SELECT USER_NAME
+			FROM SYS_LOGIN
+			WHERE SYS_ID='${sysId}'
+		]]>
+	</select>
+	
+</mapper>
